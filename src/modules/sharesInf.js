@@ -9,8 +9,7 @@ const sharesInf = () => {
             elem.classList.remove('hidden');
             elem.classList.remove('visible-sm-block');
         });
-        
     });
-}; 
+};
 
 export default sharesInf;

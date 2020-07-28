@@ -1,8 +1,7 @@
 const calculateAcordeon = () => {
     const panelHeading = document.querySelectorAll('.panel-heading'),
         panelCollapse = document.querySelectorAll('.panel-collapse'),
-        constructBtn = document.querySelectorAll('.construct-btn'),
-        discBtn = document.getElementById('discBtn');
+        constructBtn = document.querySelectorAll('.construct-btn');
 
     panelHeading.forEach((elem, i) => {
         elem.addEventListener('click', () => {
@@ -32,24 +31,6 @@ const calculateAcordeon = () => {
         });      
     });
 
-    // модальное окно с классом popup-discount
-    discBtn.addEventListener('click', () => {
-        panelCollapse[3].classList.add('in');
-        const popupDiscount = document.querySelector('.popup-discount');
-
-        popupDiscount.style.display = 'block';
-        popupDiscount.addEventListener('click', () => {
-            let target = event.target;
-            if (target.classList.contains('popup-close')) {
-                popupDiscount.style.display = 'none';
-            } else {
-                target = target.closest('.popup-content');
-                if (!target) {
-                    popupDiscount.style.display = 'none';
-                }
-            }
-        });
-    });
 
 };
 
