@@ -94,6 +94,7 @@ const sendForm = () => {
                     }
          
                 }
+                body['userDistanse'] = userDist.value;
                 body['calcResult'] = calcResult;
                 
             }
@@ -103,7 +104,7 @@ const sendForm = () => {
                     const inputs = e.querySelectorAll('input');
                     inputs.forEach(item => {item.value = '';});                        
                 });
-
+                userDist.value = '';
             };
 
             const removeMessage = () => {
