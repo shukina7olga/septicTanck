@@ -4,12 +4,11 @@ const sendForm = () => {
         loadMessage = 'Загрузка...',
         successMessage = 'Спасибо, мы скоро с Вами свяжемся!';
 
-    const forms = document.querySelectorAll('form'),
+    const forms = document.querySelectorAll('.formAll'),
         userName = document.getElementsByName('user_name'),
         userPhone = document.getElementsByName('user_phone'),
         userDist = document.getElementsByName('user_dist'),
         userQuest = document.getElementsByName('user_quest'),
-        directorForm = document.querySelector('.director-form'),
         formCalc = document.querySelector('.capture-form--calc');
 
     const statusMessage = document.createElement('div');
@@ -46,11 +45,6 @@ const sendForm = () => {
             });
             statusMessage.textContent = loadMessage;
 
-            if (element === directorForm) {
-                let question = document.querySelector('input[name="user_quest"]').value;
-                body['user_question'] = question;
-            }
-
             if (element === formCalc) {
                 let onoffswitch = document.getElementById('myonoffswitch').checked,
                     myonoffswitchTwo = document.getElementById('myonoffswitch-two').checked,
@@ -71,7 +65,7 @@ const sendForm = () => {
                     body['firstRing'] = formControl[1].options[2].value;
                 }
             
-                if(!myonoffswitch) {
+                if(!myonoffswitch.checked) {
 
                     if (formControl[0].options[1].selected) {
                         body['firstDiameter'] = formControl[0].options[1].value;
@@ -104,7 +98,6 @@ const sendForm = () => {
                     const inputs = e.querySelectorAll('input');
                     inputs.forEach(item => {item.value = '';});                        
                 });
-                userDist.value = '';
             };
 
             const removeMessage = () => {
